@@ -37,12 +37,7 @@ const Editor = ({
 	theme,
 }: EditorProps) => {
 	return (
-		<Resizable
-			className='bg-white'
-			minHeight={510}
-			minWidth={510}
-			maxWidth={1000}
-		>
+		<Resizable minHeight={510} minWidth={510} maxWidth={1000}>
 			<div className='w-full'>
 				<AceEditor
 					value="function() => {function() { return 'Hello from snappy'} }"

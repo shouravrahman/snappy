@@ -2,17 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
+/* body {
   background-color: #000;
-}
-
-.red-gradient {
-  background: linear-gradient(92deg, #ff5956 2.87%, #ee1e38 96.18%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 :root {
   color-scheme: dark;
+} */
+.ace_editor {
+	background-color: rgba(0, 0, 0, 0.5);
+	border-bottom-left-radius: 0.5rem;
+	border-bottom-right-radius: 0.5rem;
+	border-top: none;
+	border: 2px solid rgba(249, 249, 249, 0.07);
+	box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.2);
+	font-weight: 500 !important;
+	font-size: 1.15rem !important;
+	line-height: 1.5rem !important;
+}
+.ace_content {
+	width: 100% !important;
+	top: 15px !important;
+	left: 15px !important;
+}
+.ace_scroller {
+	width: 100% !important;
 }

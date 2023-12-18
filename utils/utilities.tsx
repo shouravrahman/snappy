@@ -1,38 +1,43 @@
 export const languages = [
 	{
-		name: "javascript",
+		name: "JavaScript",
 		icon: "icons/js.svg",
 	},
 	{
-		name: "html",
+		name: "Html",
 		icon: "icons/html.svg",
 	},
 	{
-		name: "css",
+		name: "CSS",
 		icon: "icons/css.svg",
 	},
 	{
-		name: "python",
+		name: "Python",
 		icon: "icons/python.svg",
 	},
+
 	{
-		name: "c++",
-		icon: "icons/cpp.svg",
-	},
-	{
-		name: "java",
+		name: "Java",
 		icon: "icons/java.svg",
 	},
 	{
-		name: "ruby",
+		name: "Ruby",
 		icon: "icons/ruby.svg",
 	},
 	{
-		name: "typescript",
-		icon: "icons/typescript.svg",
+		name: "TypeScript",
+		icon: "icons/ts.svg",
 	},
 	{
-		name: "json",
+		name: "JSON",
 		icon: "icons/json.svg",
 	},
 ];
+
+export const themes = ["monokai", "cobalt", "terminal"];
+export const backgrounds = [
+	"linear-gradient(to right, #ff7e5f, #feb47b)",
+	"linear-gradient(to right, #74ebd5, #acb6e5)",
+	"linear-gradient(to right, #7d5fff, #86e6cc)",
+];
+export const initialCode = `const [height, setHeight] = useState(500);`;

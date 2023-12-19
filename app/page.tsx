@@ -9,6 +9,7 @@ import { backgrounds, languages, themes } from "@/utils/utilities";
 import { Download } from "lucide-react";
 import { useRef, useState } from "react";
 import html2canvas from "html2canvas";
+import Header from "@/components/Header";
 
 function Home() {
 	const editorRef = useRef(null);
@@ -37,32 +38,23 @@ function Home() {
 	};
 
 	return (
-		<div className='flex flex-col items-center justify-between '>
-			<header className='max-w-6xl w-full mt-10 p-4  flex justify-center items-center gap-8 z-10 bg-[#0a0a0a] rounded border border-[#3c3c3c] shadow-md'>
-				<LanguageSelector
-					language={language}
-					setLanguage={setLanguage}
-					setActiveIcon={setActiveIcon}
-				/>
-				<ThemeSelector theme={theme} setTheme={setTheme} />
-				<BackgroundSelector bg={bg} setBg={setBg} />
-				<PaddingSelector
-					padding={padding}
-					currentPadding={currentPadding}
-					setCurrentPadding={setCureentPadding}
-				/>
-				<div className='ml-auto cursor-pointer'>
-					<button
-						className='flex justify-between items-center py-2 px-3 rounded text-sm font-medium text-yellow-400 hover:text-yellow-600 bg-slate-700'
-						onClick={exportPng}
-					>
-						<Download className='mr-2 w-4 h-4' />
-						Export PNG
-					</button>
-				</div>
-			</header>
+		<div className='flex flex-col items-center justify-between sm:px-4'>
+			<h1 className='text-6xl text-yellow-400 mt-10 p-2'>Snappy!</h1>
+			<Header
+				language={language}
+				setLanguage={setLanguage}
+				setActiveIcon={setActiveIcon}
+				theme={theme}
+				setTheme={setTheme}
+				bg={bg}
+				setBg={setBg}
+				padding={padding}
+				currentPadding={currentPadding}
+				setCurrentPadding={setCureentPadding}
+				exportPng={exportPng}
+			/>
 
-			<div className='mt-10 h-full mx-auto' ref={editorRef}>
+			<div className='mt-10 w-full h-full mx-auto m-2' ref={editorRef}>
 				<Editor
 					background={bg}
 					language={language}

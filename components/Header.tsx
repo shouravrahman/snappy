@@ -32,8 +32,8 @@ const Header = ({
 	exportPng,
 }: HeaderProps) => {
 	return (
-		<header className='max-w-6xl w-[40rem] mt-10 px-4 py-2 flex justify-center items-center gap-8 z-10 bg-[#0a0a0a] rounded border border-white/80 shadow-md'>
-			<div>
+		<header className='max-w-7xl bg-[#000] p-4 flex items-center justify-between rounded'>
+			<div className='flex items-center justify-between'>
 				<LanguageSelector
 					language={language}
 					setLanguage={setLanguage}
@@ -41,7 +41,7 @@ const Header = ({
 				/>
 				<ThemeSelector theme={theme} setTheme={setTheme} />
 			</div>
-			<div>
+			<div className='flex items-center justify-between'>
 				<BackgroundSelector bg={bg} setBg={setBg} />
 				<PaddingSelector
 					padding={padding}
@@ -49,9 +49,9 @@ const Header = ({
 					setCurrentPadding={setCurrentPadding}
 				/>
 			</div>
-			<div className=' cursor-pointer'>
+			<div className='cursor-pointer w-[15%]'>
 				<button
-					className='flex justify-between items-center py-2 px-3 rounded text-sm font-medium text-yellow-400 hover:text-yellow-600 bg-slate-700'
+					className='flex justify-between items-center py-2 px-3 rounded text-sm font-semibold text-white hover:text-yellow-600 bg-slate-700'
 					onClick={exportPng}
 				>
 					<Download className='mr-1 w-4 h-4' />

@@ -1,13 +1,12 @@
 import type { Metadata } from "next";
-import { DM_Sans } from "next/font/google";
-
+import Favicon from "/public/favicon.ico";
 import "./globals.css";
-
-const dmSans = DM_Sans({ subsets: ["latin"] });
+import { dmSans, fira } from "@/utils/fonts";
 
 export const metadata: Metadata = {
 	title: "Snappy",
-	description: "Create beautiful code snapshots.",
+	description: "Create and share beautiful images of your source code.",
+	icons: [{ rel: "icon", url: Favicon.src }],
 };
 
 export default function RootLayout({
@@ -17,7 +16,7 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang='en'>
-			<body className={dmSans.className}>
+			<body className={fira.className}>
 				<main className='max-w-7xl mx-auto'>{children}</main>
 			</body>
 		</html>

@@ -1,12 +1,11 @@
-import { backgrounds } from "@/utils/utilities";
-import { AppWindow, Palette, Pipette } from "lucide-react";
-import React, { BaseSyntheticEvent } from "react";
+import { AppWindow } from "lucide-react";
+import { BaseSyntheticEvent } from "react";
 interface PaddingSelectorProps {
 	padding: string[];
 	currentPadding: string;
 	setCurrentPadding: (bg: string) => void;
 }
-const BackgroundSelector = ({
+const PaddingSelector = ({
 	padding,
 	currentPadding,
 	setCurrentPadding,
@@ -21,13 +20,13 @@ const BackgroundSelector = ({
 			<label className='sr-only' htmlFor='background'>
 				padding:
 			</label>
-			<AppWindow className='h-8 w-8 p-1 border ' />
+			<AppWindow className='text-white h-6 w-6 mr-2' />
 			<input
-				className=' px-3 py-[3px] bg-transparent border '
+				className='bg-[#222] w-[60%] text-white p-2 rounded outline-none'
 				list='paddings'
 				id='padding'
 				name='padding'
-				placeholder={padding[0]}
+				placeholder={padding[2]}
 				onChange={handlePaddingChange}
 			/>
 			<datalist id='paddings'>
@@ -39,4 +38,4 @@ const BackgroundSelector = ({
 	);
 };
 
-export default BackgroundSelector;
+export default PaddingSelector;

@@ -1,8 +1,8 @@
 "use client";
 
-import { languages, themes } from "@/utils/utilities";
-import { ChevronDown, Code2, Languages, Palette } from "lucide-react";
-import React, { BaseSyntheticEvent, SyntheticEvent } from "react";
+import { themes } from "@/utils/utilities";
+import { Palette } from "lucide-react";
+import { BaseSyntheticEvent } from "react";
 
 interface ThemeSelectorProps {
 	theme: string;
@@ -21,9 +21,9 @@ const ThemeSelector = ({ theme, setTheme }: ThemeSelectorProps) => {
 			<label className='sr-only' htmlFor='language'>
 				Theme:
 			</label>
-			<Palette className='h-8 w-8 p-1 border ' />
+			<Palette className='text-white h-6 w-6 mr-2' />
 			<input
-				className=' px-3 py-[3px] bg-transparent border '
+				className=' bg-[#222] w-[60%] text-white p-2 rounded outline-none'
 				list='themes'
 				id='language'
 				name='language'

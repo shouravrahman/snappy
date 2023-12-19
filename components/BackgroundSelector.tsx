@@ -17,14 +17,14 @@ const BackgroundSelector = ({ bg, setBg }: BackgroundSelectorProps) => {
 				Background:
 			</label>
 
-			<Pipette className='h-8 w-8 p-1 border ' />
+			<Pipette className='h-6 w-6 text-white mr-2' />
 			<input
-				className='px-3 py-[15px] bg-transparent border '
+				className='bg-[#222] h-[2.5rem] text-white p-2 rounded outline-none '
 				type='color'
 				list='backgrounds'
 				id='background'
 				name='background'
-				// placeholder={backgrounds[0]}
+				placeholder={backgrounds[1]}
 				onChange={handleBackgroundChange}
 			/>
 			<datalist id='backgrounds'>

@@ -2,26 +2,37 @@
 import React, { useState, useEffect } from "react";
 import { Resizable } from "re-resizable";
 import AceEditor from "react-ace";
+import Image from "next/image";
+import "ace-builds/src-noconflict/ext-language_tools";
 
-// Dynamically import only the needed Ace Editor modes and themes
-const importAceBuilds = async () => {
-	await import("ace-builds/src-noconflict/ext-language_tools");
-	await import("ace-builds/src-noconflict/theme-github");
-	await import("ace-builds/src-noconflict/theme-monokai");
-	await import("ace-builds/src-noconflict/mode-javascript");
-	await import("ace-builds/src-noconflict/mode-python");
-	await import("ace-builds/src-noconflict/mode-java");
-	await import("ace-builds/src-noconflict/mode-typescript");
-	await import("ace-builds/src-noconflict/mode-html");
-	await import("ace-builds/src-noconflict/mode-css");
-	await import("ace-builds/src-noconflict/mode-json");
+import "ace-builds/src-noconflict/mode-javascript";
+import "ace-builds/src-noconflict/mode-jsx";
+import "ace-builds/src-noconflict/mode-python";
+import "ace-builds/src-noconflict/mode-java";
+import "ace-builds/src-noconflict/mode-typescript";
+import "ace-builds/src-noconflict/mode-html";
+import "ace-builds/src-noconflict/mode-css";
+import "ace-builds/src-noconflict/mode-json";
+import "ace-builds/src-noconflict/mode-mysql";
 
-	await import("ace-builds/src-noconflict/theme-cobalt");
-	await import("ace-builds/src-noconflict/theme-terminal");
-	await import("ace-builds/src-noconflict/theme-twilight");
-	// Import other themes and modes as needed
-};
+import "ace-builds/src-noconflict/theme-cobalt";
+import "ace-builds/src-noconflict/theme-terminal";
+import "ace-builds/src-noconflict/theme-twilight";
+import "ace-builds/src-noconflict/theme-chaos";
+import "ace-builds/src-noconflict/theme-cloud9_night";
+import "ace-builds/src-noconflict/theme-crimson_editor";
+import "ace-builds/src-noconflict/theme-dracula";
+import "ace-builds/src-noconflict/theme-github";
+import "ace-builds/src-noconflict/theme-monokai";
+import { initialCode } from "@/utils/utilities";
+import beautify from "js-beautify";
+// languages.forEach((lang) => {
+// 	require(`ace-builds/src-noconflict/mode-${lang}`);
 
+// });
+
+// Import other themes and modes as needed
+// import Beautify from "ace-builds/src-noconflict/ext-beautify";
 interface EditorProps {
 	language: string;
 	theme: string;
@@ -40,12 +51,11 @@ const Editor: React.FC<EditorProps> = ({
 	const [width, setWidth] = useState<number>(1100);
 	const [height, setHeight] = useState<number>(500);
 	const [title, setTitle] = useState<string>("Untitled-1");
-	const [code, setCode] = useState<string>("");
+	const [code, setCode] = useState<string>(initialCode[2]);
 
 	const handleCodeChange = (newCode: string) => {
 		setCode(newCode);
 	};
-
 	const handleResize = (_: any, __: any, ref: any) => {
 		const newHeight = ref.style.height;
 		setHeight(parseInt(newHeight, 10));
@@ -55,29 +65,37 @@ const Editor: React.FC<EditorProps> = ({
 		setWidth(window.innerWidth);
 	};
 
+	const formatCode = () => {
+		const formattedCode = beautify(code, { indent_size: 2 });
+		setCode(formattedCode);
+	};
+
 	useEffect(() => {
 		updateSize();
 		window.addEventListener("resize", updateSize);
-		// Dynamically import Ace Editor builds
-		importAceBuilds();
 		return () => window.removeEventListener("resize", updateSize);
 	}, []);
 
 	return (
 		<Resizable
-			maxWidth={1300}
+			maxWidth={"80vw"}
+			minWidth={400}
 			minHeight={500}
 			defaultSize={{ width, height }}
 			onResize={handleResize}
-			className='rounded'
+			className='rounded relative'
 			style={{ background, padding: currentPadding }}
 		>
+			<div className='handle  absolute left-1/2 -top-1 w-2 h-2 rounded-full bg-yellow-500 hover:bg-slate-300'></div>
+			<div className='handle  absolute left-1/2 -bottom-1 w-2 h-2 rounded-full bg-yellow-500 hover:bg-slate-300'></div>
+			<div className='handle  absolute -left-1 top-1/2 w-2 h-2 rounded-full bg-yellow-500 hover:bg-slate-300'></div>
+			<div className='handle  absolute -right-1 top-1/2 w-2 h-2 rounded-full bg-yellow-500 hover:bg-slate-300'></div>
 			<div className='code-block'>
-				<div className='code-title h-[60px] px-4 flex items-center justify-between bg-black bg-opacity-80'>
+				<div className='code-title h-[60px] px-4 flex items-center justify-between bg-black '>
 					<div className='flex items-center p-4 gap-1'>
-						<div className='w-3 h-3 rounded-full bg-[#ff5656]'></div>
-						<div className='w-3 h-3 rounded-full bg-[#ff5656]'></div>
-						<div className='w-3 h-3 rounded-full bg-[#ff5656]'></div>
+						<div className='w-3 h-3 rounded-full bg-yellow-200'></div>
+						<div className='w-3 h-3 rounded-full bg-yellow-200'></div>
+						<div className='w-3 h-3 rounded-full bg-yellow-200'></div>
 					</div>
 					<div>
 						<input
@@ -89,8 +107,11 @@ const Editor: React.FC<EditorProps> = ({
 					</div>
 					<div className='icon flex justify-center items-center bg-white rounded-full p-1'>
 						{/* icon */}
-						<img src={icon} width={25} height={25} alt='icon' />
+						<Image src={icon} width={20} height={20} alt='icon' />
 					</div>
+					<button className='text-2xl' onClick={formatCode}>
+						✨
+					</button>
 				</div>
 				<AceEditor
 					value={code}
@@ -106,7 +127,7 @@ const Editor: React.FC<EditorProps> = ({
 					highlightActiveLine={false}
 					editorProps={{ $blockScrolling: true }}
 					onChange={handleCodeChange}
-					focus
+					// focus
 				/>
 			</div>
 		</Resizable>

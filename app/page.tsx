@@ -2,7 +2,7 @@
 // import Editor from "@/components/Editor";
 import Footer from "@/components/Footer";
 import { backgrounds, languages, themes } from "@/utils/utilities";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import html2canvas from "html2canvas";
 import Header from "@/components/Header";
 import dynamic from "next/dynamic";
@@ -14,11 +14,11 @@ const Editor = dynamic(() => import("@/components/Editor"), {
 });
 
 function Home() {
-	const editorRef = useRef(null);
+	const editorRef = useRef<HTMLDivElement>(null);
 
 	const [language, setLanguage] = useState(languages[0].name);
-	const [theme, setTheme] = useState(themes[1]);
-	const [bg, setBg] = useState(backgrounds[3]);
+	const [theme, setTheme] = useState(themes[0]);
+	const [bg, setBg] = useState(backgrounds[4]);
 	const [padding, setPadding] = useState(["1rem", "2rem", "3rem"]);
 	const [currentPadding, setCureentPadding] = useState(padding[2]);
 	const [activeIcon, setActiveIcon] = useState(languages[0].icon);
@@ -27,7 +27,14 @@ function Home() {
 		const editorElement = editorRef.current;
 
 		if (editorElement) {
-			const canvas = await html2canvas(editorElement);
+			const canvas = await html2canvas(editorElement, {
+				backgroundColor: null,
+				ignoreElements: (element) => {
+					// Ignore elements with the class name "handle"
+					return element.classList.contains("handle");
+				},
+			});
+
 			const image = canvas
 				.toDataURL("image/png")
 				.replace("image/png", "image/octet-stream");
@@ -40,7 +47,7 @@ function Home() {
 	};
 
 	return (
-		<div className='flex flex-col items-center justify-between px-4 mt-10'>
+		<div className='flex flex-col items-center justify-between px-4 mt-6'>
 			{/* <h1 className='text-6xl text-yellow-400 mt-12 p-2'>Snappy!</h1> */}
 			<Image
 				src='/logo-trs.png'
@@ -49,7 +56,9 @@ function Home() {
 				height={0}
 				className='w-40 h-28 object-cover'
 			/>
-			<h2 className={`text-xl max-w-4xl text-center text-white mb-6`}>
+			<h2
+				className={`text-xl max-w-4xl w-[80vw] mx-auto text-center text-yellow-400 mb-6`}
+			>
 				Create and share beautiful images of your source code. Start typing or
 				paste into the text area to get started.
 			</h2>
@@ -67,14 +76,16 @@ function Home() {
 				exportPng={exportPng}
 			/>
 
-			<div className='mt-10 flex justify-center text-white' ref={editorRef}>
-				<Editor
-					background={bg}
-					language={language}
-					icon={activeIcon}
-					theme={theme}
-					currentPadding={currentPadding}
-				/>
+			<div className='mt-10 w-screen flex justify-center text-white'>
+				<div ref={editorRef}>
+					<Editor
+						background={bg}
+						language={language}
+						icon={activeIcon}
+						theme={theme}
+						currentPadding={currentPadding}
+					/>
+				</div>
 			</div>
 			<Footer />
 		</div>

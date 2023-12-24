@@ -9,7 +9,8 @@ body {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	height: 100vh;
+	/* height: 100vh; */
+	overflow: hidden;
 }
 
 .ace_editor {

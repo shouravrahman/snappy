@@ -16,8 +16,9 @@ const BackgroundSelector = ({ bg, setBg }: BackgroundSelectorProps) => {
 			<label className='sr-only' htmlFor='background'>
 				Background:
 			</label>
+			{/* <Pipette className='h-6 w-6 text-white mr-2' /> */}
+			<div className='text-2xl mr-2'>🟡</div>
 
-			<Pipette className='h-6 w-6 text-white mr-2' />
 			<input
 				className='bg-[#222] h-[2.5rem] text-white p-2 rounded outline-none '
 				type='color'

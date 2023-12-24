@@ -20,7 +20,9 @@ const PaddingSelector = ({
 			<label className='sr-only' htmlFor='background'>
 				padding:
 			</label>
-			<AppWindow className='text-white h-6 w-6 mr-2' />
+			{/* <AppWindow className='text-white h-6 w-6 mr-2' /> */}
+			<div className='text-2xl mr-2'>⏹️</div>
+
 			<input
 				className='bg-[#222] w-[60%] text-white p-2 rounded outline-none'
 				list='paddings'

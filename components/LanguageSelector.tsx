@@ -31,10 +31,11 @@ const LanguageSelector = ({
 			<label className='sr-only' htmlFor='language'>
 				Language:
 			</label>
-			<Code2 className='text-white h-6 w-6 mr-2' />
+			{/* <Code2 className='text-white h-6 w-6 mr-2' /> */}
+			<div className='text-2xl mr-2'>👨‍💻</div>
 			{/* <Code2 className='h-8 w-8 p-1 border ' /> */}
 			<input
-				className='bg-[#222] w-[60%] text-white p-2 rounded outline-none'
+				className='bg-[#222] w-[20vw] md:w-[10vw] text-white p-2 rounded outline-none'
 				list='languages'
 				id='language'
 				name='language'

@@ -1,8 +1,6 @@
-"use client";
-
+import React, { BaseSyntheticEvent } from "react";
+import BaseSelector from "./BaseSelector";
 import { themes } from "@/utils/utilities";
-import { Palette } from "lucide-react";
-import { BaseSyntheticEvent } from "react";
 
 interface ThemeSelectorProps {
 	theme: string;
@@ -11,32 +9,20 @@ interface ThemeSelectorProps {
 
 const ThemeSelector = ({ theme, setTheme }: ThemeSelectorProps) => {
 	const handleThemeChange = (e: BaseSyntheticEvent) => {
-		console.log(e);
 		const newTheme = e.target.value;
 		setTheme(newTheme);
 	};
 
 	return (
-		<div className='text-white flex items-center justify-center'>
-			<label className='sr-only' htmlFor='language'>
-				Theme:
-			</label>
-			{/* <Palette className='text-white h-6 w-6 mr-2' /> */}
-			<div className='text-2xl mr-2'>🎨</div>
-			<input
-				className=' bg-[#222] w-[60%] text-white p-2 rounded outline-none'
-				list='themes'
-				id='language'
-				name='language'
-				placeholder={theme}
-				onChange={handleThemeChange}
-			/>
-			<datalist id='themes'>
-				{themes.map((theme, i) => (
-					<option key={i} value={theme}></option>
-				))}
-			</datalist>
-		</div>
+		<BaseSelector
+			options={themes}
+			currentValue={theme}
+			setValue={setTheme}
+			icon='🎨'
+			placeholder='Select a theme'
+			dataListId='themes'
+			inputId='theme'
+		/>
 	);
 };
 

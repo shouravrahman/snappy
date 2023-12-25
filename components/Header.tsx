@@ -31,9 +31,12 @@ const Header = ({
 	setCurrentPadding,
 	exportPng,
 }: HeaderProps) => {
+	// console.log(bg);
 	return (
-		<header className='max-w-6xl w-[80vw] bg-[#18181B] p-4 mx-auto flex items-center justify-center rounded-md'>
-			<div className='flex flex-col md:flex-row gap-4 items-center justify-between'>
+		<header
+			className={`max-w-7xl w-full bg-[${bg}] px-4 py-2 mx-auto flex items-center justify-between rounded-md`}
+		>
+			<div className='flex flex-col md:flex-row gap-2 items-center justify-between flex-grow-1'>
 				<LanguageSelector
 					language={language}
 					setLanguage={setLanguage}
@@ -41,15 +44,15 @@ const Header = ({
 				/>
 				<ThemeSelector theme={theme} setTheme={setTheme} />
 			</div>
-			<div className='flex flex-col md:flex-row gap-4 items-center justify-between'>
-				<BackgroundSelector bg={bg} setBg={setBg} />
+			<div className='flex flex-col md:flex-row gap-2 items-center justify-between flex-grow-1'>
 				<PaddingSelector
 					padding={padding}
 					currentPadding={currentPadding}
 					setCurrentPadding={setCurrentPadding}
 				/>
+				<BackgroundSelector bg={bg} setBg={setBg} />
 			</div>
-			<div className='cursor-pointer w-[20%]'>
+			<div className='cursor-pointer flex-grow-0'>
 				<button
 					className='flex justify-between items-center py-2 px-3 rounded text-sm font-semibold text-white hover:text-yellow-600 bg-slate-700'
 					onClick={exportPng}

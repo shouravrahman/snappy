@@ -79,7 +79,7 @@ const Editor: React.FC<EditorProps> = ({
 	return (
 		<Resizable
 			maxWidth={"80vw"}
-			minWidth={400}
+			minWidth={450}
 			minHeight={500}
 			defaultSize={{ width, height }}
 			onResize={handleResize}

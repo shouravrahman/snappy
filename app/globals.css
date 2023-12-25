@@ -12,6 +12,47 @@ body {
 	/* height: 100vh; */
 	overflow: hidden;
 }
+input[type="color"][list] {
+	appearance: auto;
+	inline-size: 189px;
+	block-size: 34px;
+}
+/* .fancy-input {
+  background-color: #222;
+  color: white;
+  padding: 12px;
+  border: 2px solid #555;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+/* Hover effect */
+/* .fancy-input:hover {
+	border-color: #888;
+}
+
+/* Focus effect */
+/* .fancy-input:focus {
+	border-color: #00bcd4;
+	box-shadow: 0 0 5px rgba(0, 188, 212, 0.7);
+}  */
+
+/* Default styles for input type color */
+/* input[type="color"] {
+	appearance: auto;
+	inline-size: 195px;
+	block-size: 40px;
+	cursor: default;
+	box-sizing: border-box;
+	background-color: #222;
+	color: white;
+	border-width: 1px;
+	border-style: solid;
+	border-color: grey;
+	border-image: initial;
+	padding: 1px 2px;
+} */
 
 .ace_editor {
 	background-color: rgba(0, 0, 0, 0.5);

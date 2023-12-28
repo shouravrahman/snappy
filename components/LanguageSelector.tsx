@@ -2,17 +2,20 @@ import React, { BaseSyntheticEvent } from "react";
 import BaseSelector from "./BaseSelector";
 import { languages } from "@/utils/utilities";
 
+// Interface for LanguageSelector component props
 interface LanguageSelectorProps {
 	language: string;
 	setActiveIcon: (icon: string) => void;
 	setLanguage: (language: string) => void;
 }
 
+// LanguageSelector Component
 const LanguageSelector = ({
 	language,
 	setActiveIcon,
 	setLanguage,
 }: LanguageSelectorProps) => {
+	// Function to handle language change
 	const handleLangChange = (e: BaseSyntheticEvent) => {
 		const newLang = e.target.value;
 		setLanguage(newLang);

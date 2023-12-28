@@ -1,5 +1,6 @@
 import React, { BaseSyntheticEvent, InputHTMLAttributes } from "react";
 
+// Interface for BaseSelector component props
 interface BaseSelectorProps {
 	options: string[];
 	currentValue: string;
@@ -11,6 +12,7 @@ interface BaseSelectorProps {
 	inputId: string;
 }
 
+// BaseSelector Component
 const BaseSelector = ({
 	options,
 	currentValue,
@@ -21,6 +23,7 @@ const BaseSelector = ({
 	dataListId,
 	inputId,
 }: BaseSelectorProps) => {
+	// Function to handle change in selector value
 	const handleChange = (e: BaseSyntheticEvent) => {
 		const newValue = e.target.value;
 		setValue(newValue);

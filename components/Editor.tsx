@@ -1,10 +1,11 @@
-"use client";
+// Import necessary dependencies and styles
 import React, { useState, useEffect } from "react";
 import { Resizable } from "re-resizable";
 import AceEditor from "react-ace";
 import Image from "next/image";
 import "ace-builds/src-noconflict/ext-language_tools";
 
+// Import Ace Editor modes and themes
 import "ace-builds/src-noconflict/mode-javascript";
 import "ace-builds/src-noconflict/mode-jsx";
 import "ace-builds/src-noconflict/mode-python";
@@ -24,58 +25,59 @@ import "ace-builds/src-noconflict/theme-crimson_editor";
 import "ace-builds/src-noconflict/theme-dracula";
 import "ace-builds/src-noconflict/theme-github";
 import "ace-builds/src-noconflict/theme-monokai";
-import { initialCode } from "@/utils/utilities";
-import beautify from "js-beautify";
-// languages.forEach((lang) => {
-// 	require(`ace-builds/src-noconflict/mode-${lang}`);
 
-// });
-
-// Import other themes and modes as needed
-// import Beautify from "ace-builds/src-noconflict/ext-beautify";
+// Interface for props
 interface EditorProps {
 	language: string;
 	theme: string;
 	icon: string;
 	background?: string;
 	currentPadding?: string;
+	code: string;
+	setCode: (code: string) => void;
 }
 
+// Editor Component
 const Editor: React.FC<EditorProps> = ({
 	icon,
 	language,
 	background,
 	currentPadding,
 	theme,
+	code,
+	setCode,
 }: EditorProps) => {
+	// State for managing editor size
 	const [width, setWidth] = useState<number>(1100);
 	const [height, setHeight] = useState<number>(500);
-	const [title, setTitle] = useState<string>("Untitled-1");
-	const [code, setCode] = useState<string>(initialCode[2]);
 
+	// State for managing title
+	const [title, setTitle] = useState<string>("Untitled-1");
+
+	// Function to handle code change
 	const handleCodeChange = (newCode: string) => {
 		setCode(newCode);
 	};
+
+	// Function to handle resizing
 	const handleResize = (_: any, __: any, ref: any) => {
 		const newHeight = ref.style.height;
 		setHeight(parseInt(newHeight, 10));
 	};
 
+	// Function to update size based on window resize
 	const updateSize = () => {
 		setWidth(window.innerWidth);
 	};
 
-	const formatCode = () => {
-		const formattedCode = beautify(code, { indent_size: 2 });
-		setCode(formattedCode);
-	};
-
+	// Effect to update size on initial load and window resize
 	useEffect(() => {
 		updateSize();
 		window.addEventListener("resize", updateSize);
 		return () => window.removeEventListener("resize", updateSize);
 	}, []);
 
+	// JSX structure for the resizable editor
 	return (
 		<Resizable
 			maxWidth={"80vw"}
@@ -86,17 +88,23 @@ const Editor: React.FC<EditorProps> = ({
 			className='rounded relative'
 			style={{ background, padding: currentPadding }}
 		>
+			{/* Handles for resizing */}
 			<div className='handle  absolute left-1/2 -top-1 w-2 h-2 rounded-full bg-yellow-500 hover:bg-slate-300'></div>
 			<div className='handle  absolute left-1/2 -bottom-1 w-2 h-2 rounded-full bg-yellow-500 hover:bg-slate-300'></div>
 			<div className='handle  absolute -left-1 top-1/2 w-2 h-2 rounded-full bg-yellow-500 hover:bg-slate-300'></div>
 			<div className='handle  absolute -right-1 top-1/2 w-2 h-2 rounded-full bg-yellow-500 hover:bg-slate-300'></div>
+
+			{/* Code block containing title and Ace Editor */}
 			<div className='code-block'>
+				{/* Code title section */}
 				<div className='code-title h-[60px] px-4 flex items-center justify-between bg-black '>
 					<div className='flex items-center p-4 gap-1'>
+						{/* Placeholder icons */}
 						<div className='w-3 h-3 rounded-full bg-yellow-200'></div>
 						<div className='w-3 h-3 rounded-full bg-yellow-200'></div>
 						<div className='w-3 h-3 rounded-full bg-yellow-200'></div>
 					</div>
+					{/* Title input */}
 					<div>
 						<input
 							type='text'
@@ -105,14 +113,14 @@ const Editor: React.FC<EditorProps> = ({
 							onChange={(e) => setTitle(e.target.value)}
 						/>
 					</div>
+					{/* Icon section */}
 					<div className='icon flex justify-center items-center bg-white rounded-full p-1'>
-						{/* icon */}
+						{/* Display icon */}
 						<Image src={icon} width={20} height={20} alt='icon' />
 					</div>
-					<button className='text-2xl' onClick={formatCode}>
-						✨
-					</button>
 				</div>
+
+				{/* Ace Editor for code input */}
 				<AceEditor
 					value={code}
 					fontSize={16}

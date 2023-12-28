@@ -1,28 +1,31 @@
-"use client";
-// import Editor from "@/components/Editor";
-import Footer from "@/components/Footer";
-import { backgrounds, languages, themes } from "@/utils/utilities";
-import { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import html2canvas from "html2canvas";
-import Header from "@/components/Header";
 import dynamic from "next/dynamic";
 import Image from "next/image";
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
+import { backgrounds, initialCode, languages, themes } from "@/utils/utilities";
 
+// Dynamic import for Editor component to enable client-side rendering
 const Editor = dynamic(() => import("@/components/Editor"), {
 	ssr: false,
 	loading: () => <div>Loading Editor...</div>,
 });
 
 function Home() {
+	// Ref for capturing the Editor element during export
 	const editorRef = useRef<HTMLDivElement>(null);
 
+	// State for managing various aspects of the code editor
 	const [language, setLanguage] = useState(languages[0].name);
 	const [theme, setTheme] = useState(themes[0]);
 	const [bg, setBg] = useState(backgrounds[4]);
 	const [padding, setPadding] = useState(["1rem", "2rem", "3rem"]);
-	const [currentPadding, setCureentPadding] = useState(padding[2]);
+	const [currentPadding, setCurrentPadding] = useState(padding[2]);
 	const [activeIcon, setActiveIcon] = useState(languages[0].icon);
+	const [code, setCode] = useState<string>(initialCode[2]);
 
+	// Function to export the code editor content as an image
 	const exportPng = async () => {
 		const editorElement = editorRef.current;
 
@@ -48,7 +51,7 @@ function Home() {
 
 	return (
 		<div className='flex flex-col items-center justify-between px-4 mt-6'>
-			{/* <h1 className='text-6xl text-yellow-400 mt-12 p-2'>Snappy!</h1> */}
+			{/* Logo Section */}
 			<Image
 				src='/logo-trs.png'
 				alt='logo'
@@ -56,12 +59,16 @@ function Home() {
 				height={0}
 				className='w-40 h-28 object-cover'
 			/>
+
+			{/* Introduction Section */}
 			<h2
 				className={`text-xl max-w-4xl w-[80vw] mx-auto text-center text-yellow-400 mb-6`}
 			>
 				Create and share beautiful images of your source code. Start typing or
 				paste into the text area to get started.
 			</h2>
+
+			{/* Header Component */}
 			<Header
 				language={language}
 				setLanguage={setLanguage}
@@ -72,10 +79,13 @@ function Home() {
 				setBg={setBg}
 				padding={padding}
 				currentPadding={currentPadding}
-				setCurrentPadding={setCureentPadding}
+				setCurrentPadding={setCurrentPadding}
 				exportPng={exportPng}
+				code={code}
+				setCode={setCode}
 			/>
 
+			{/* Editor Section */}
 			<div className='mt-10 w-screen flex justify-center text-white'>
 				<div ref={editorRef}>
 					<Editor
@@ -84,9 +94,13 @@ function Home() {
 						icon={activeIcon}
 						theme={theme}
 						currentPadding={currentPadding}
+						code={code}
+						setCode={setCode}
 					/>
 				</div>
 			</div>
+
+			{/* Footer Component */}
 			<Footer />
 		</div>
 	);

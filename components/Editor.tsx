@@ -4,6 +4,7 @@ import { Resizable } from "re-resizable";
 import AceEditor from "react-ace";
 import Image from "next/image";
 import "ace-builds/src-noconflict/ext-language_tools";
+import "ace-builds/src-noconflict/ext-language_tools";
 
 // Import Ace Editor modes and themes
 import "ace-builds/src-noconflict/mode-javascript";
@@ -25,7 +26,6 @@ import "ace-builds/src-noconflict/theme-crimson_editor";
 import "ace-builds/src-noconflict/theme-dracula";
 import "ace-builds/src-noconflict/theme-github";
 import "ace-builds/src-noconflict/theme-monokai";
-
 // Interface for props
 interface EditorProps {
 	language: string;

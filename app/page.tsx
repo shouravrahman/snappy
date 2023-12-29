@@ -7,11 +7,12 @@ import Header from "@/components/Header";
 import { backgrounds, initialCode, languages, themes } from "@/utils/utilities";
 import Footer from "@/components/Footer";
 
+import Editor from "@/components/Editor";
 // Dynamic import for Editor component to enable client-side rendering
-const Editor = dynamic(() => import("@/components/Editor"), {
-	ssr: false,
-	loading: () => <div>Loading Editor...</div>,
-});
+// const Editor = dynamic(() => import("@/components/Editor"), {
+// 	ssr: false,
+// 	loading: () => <div>Loading Editor...</div>,
+// });
 
 function Home() {
 	// Ref for capturing the Editor element during export
@@ -51,7 +52,7 @@ function Home() {
 	};
 
 	return (
-		<div className='flex flex-col items-center justify-between px-4 mt-6'>
+		<div className='flex flex-col items-center justify-between px-1 mt-6'>
 			{/* Logo Section */}
 			<Image
 				src='/logo-trs.png'

@@ -24,6 +24,7 @@ const LanguageSelector = ({
 		if (newActiveIcon) {
 			setActiveIcon(newActiveIcon);
 		}
+		console.log(newActiveIcon);
 	};
 
 	return (
@@ -35,6 +36,7 @@ const LanguageSelector = ({
 			placeholder='Select a language'
 			dataListId='languages'
 			inputId='language'
+			onChange={handleLangChange}
 		/>
 	);
 };

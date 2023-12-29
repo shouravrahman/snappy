@@ -10,6 +10,7 @@ interface BaseSelectorProps {
 	dataListId: string;
 	type?: InputHTMLAttributes<HTMLInputElement>["type"];
 	inputId: string;
+	onChange?: (e: React.BaseSyntheticEvent) => void;
 }
 
 // BaseSelector Component
@@ -22,11 +23,13 @@ const BaseSelector = ({
 	placeholder,
 	dataListId,
 	inputId,
+	onChange,
 }: BaseSelectorProps) => {
 	// Function to handle change in selector value
 	const handleChange = (e: BaseSyntheticEvent) => {
 		const newValue = e.target.value;
 		setValue(newValue);
+		onChange && onChange(e);
 	};
 
 	return (

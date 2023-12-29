@@ -1,11 +1,26 @@
 // Import necessary dependencies and assets
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import Favicon from "/public/favicon.ico";
 import "./globals.css"; // Global styles for the entire application
 import { fira } from "@/utils/fonts"; // Font utility, presumably for applying a specific font style
 
+//viewport
+export const viewport: Viewport = {
+	width: "device-width",
+	initialScale: 1.0,
+	maximumScale: 1.0,
+	userScalable: false,
+};
 // Metadata configuration for the application
 export const metadata: Metadata = {
+	metadataBase: new URL("https://snappy.vercel.app.com"),
+	alternates: {
+		canonical: "/",
+		languages: {
+			"en-US": "/en-US",
+			"de-DE": "/de-DE",
+		},
+	},
 	title: "Snappy",
 	description: "Create and share beautiful images of your source code.",
 	icons: [{ rel: "icon", url: Favicon.src }],
@@ -24,23 +39,17 @@ export const metadata: Metadata = {
 	openGraph: {
 		title: "Snappy - Code Snippet Sharing Platform",
 		description: "Capture and Share Code Snippets Instantly with Snappy.",
-		url: "https://your-snappy-app.com",
+		url: "https://snappy.vercel.app.com",
 		siteName: "Snappy - Code Snippet Sharing Platform",
 		type: "website",
 		images: [
 			{
-				url: "https://your-snappy-app.com/static/brand/banner.png",
+				url: "https://snappy.vercel.app.com/static/brand/banner.png",
 				width: 1200, // Replace with the actual width
 				height: 630, // Replace with the actual height
 				alt: "Snappy Banner",
 			},
 		],
-	},
-	viewport: {
-		width: "device-width",
-		initialScale: 1.0,
-		maximumScale: 1.0,
-		userScalable: false,
 	},
 
 	robots: {

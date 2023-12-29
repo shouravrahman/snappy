@@ -24,7 +24,7 @@ function Home() {
 	const [padding, setPadding] = useState(["1rem", "2rem", "3rem"]);
 	const [currentPadding, setCurrentPadding] = useState(padding[2]);
 	const [activeIcon, setActiveIcon] = useState(languages[0].icon);
-	const [code, setCode] = useState<string>(initialCode[2]);
+	const [code, setCode] = useState<string>(initialCode[0]);
 
 	// Function to export the code editor content as an image
 	const exportPng = async () => {

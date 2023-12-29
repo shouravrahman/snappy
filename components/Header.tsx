@@ -48,42 +48,36 @@ const Header = ({
 	return (
 		// Header section with dynamic background based on 'bg' prop
 		<header
-			className={`max-w-7xl w-full bg-[${bg}] px-4 py-2 mx-auto flex items-center justify-between rounded-md`}
+			className={`max-w-full md:max-w-6xl w-full bg-[${bg}] space-x-4 flex items-center justify-between rounded-md`}
 		>
 			{/* Language and Theme selector section */}
-			<div className='flex flex-col md:flex-row gap-2 items-center justify-between flex-grow-1'>
+			<div className='flex items-center justify-center flex-wrap space-x-2'>
 				<LanguageSelector
 					language={language}
 					setLanguage={setLanguage}
 					setActiveIcon={setActiveIcon}
 				/>
 				<ThemeSelector theme={theme} setTheme={setTheme} />
-			</div>
 
-			{/* Padding and Background selector section */}
-			<div className='flex flex-col md:flex-row gap-2 items-center justify-between flex-grow-1'>
 				<PaddingSelector
 					padding={padding}
 					currentPadding={currentPadding}
 					setCurrentPadding={setCurrentPadding}
 				/>
 				<BackgroundSelector bg={bg} setBg={setBg} />
-			</div>
-
-			{/* Export and Code Format buttons section */}
-			<div className='cursor-pointer flex-grow-0'>
-				{/* Export button */}
-				<button
-					className='flex justify-between items-center py-2 px-3 rounded text-sm font-semibold text-white hover:text-yellow-600 bg-slate-700'
-					onClick={exportPng}
-				>
-					<Download className='mr-1 w-4 h-4' />
-					Export
-				</button>
 
 				{/* Code format button */}
-				<button className='text-2xl' onClick={formatCode}>
+				<button
+					className='text-2xl border border-yellow-200 rounded'
+					onClick={formatCode}
+				>
 					✨
+				</button>
+				<button
+					className='py-2 px-4 rounded text-sm font-semibold text-white hover:text-yellow-600 bg-slate-700'
+					onClick={exportPng}
+				>
+					<Download className='mr-1 w-4 h-6' />
 				</button>
 			</div>
 		</header>

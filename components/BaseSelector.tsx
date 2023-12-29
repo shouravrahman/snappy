@@ -30,14 +30,14 @@ const BaseSelector = ({
 	};
 
 	return (
-		<div className='text-white flex items-center justify-center p-1'>
+		<div className='text-white flex items-center justify-between p-2'>
 			{icon && (
-				<div className='text-2xl  border-[1px] border-gray-600 rounded-sm'>
+				<div className='text-2xl border border-zinc-100/40 rounded-sm'>
 					{icon}
 				</div>
 			)}
 			<input
-				className='bg-[#222] w-full text-white p-1 rounded-sm outline-none border-[1px] border-gray-600'
+				className='bg-[#222] w-[300px] text-white p-1 rounded-sm outline-none border border-zinc-100/40'
 				list={dataListId}
 				id={inputId}
 				name={inputId}

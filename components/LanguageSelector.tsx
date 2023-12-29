@@ -31,7 +31,7 @@ const LanguageSelector = ({
 			options={languages.map((lang) => lang.name)}
 			currentValue={language}
 			setValue={setLanguage}
-			icon='</>'
+			icon='🌐'
 			placeholder='Select a language'
 			dataListId='languages'
 			inputId='language'

@@ -1,5 +1,4 @@
 import { backgrounds } from "@/utils/utilities";
-import { Pipette } from "lucide-react";
 import React from "react";
 import BaseSelector from "./BaseSelector";
 

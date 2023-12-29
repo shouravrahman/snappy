@@ -1,10 +1,11 @@
+"use client";
 import React, { useRef, useState } from "react";
 import html2canvas from "html2canvas";
 import dynamic from "next/dynamic";
 import Image from "next/image";
-import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { backgrounds, initialCode, languages, themes } from "@/utils/utilities";
+import Footer from "@/components/Footer";
 
 // Dynamic import for Editor component to enable client-side rendering
 const Editor = dynamic(() => import("@/components/Editor"), {

@@ -13,22 +13,22 @@ export const viewport: Viewport = {
 };
 // Metadata configuration for the application
 export const metadata: Metadata = {
-	metadataBase: new URL("https://snappy.vercel.app.com"),
+	metadataBase: new URL("https://snappy-beta.vercel.app"),
 	alternates: {
 		canonical: "/",
 		languages: {
 			"en-US": "/en-US",
-			"de-DE": "/de-DE",
 		},
 	},
 	title: "Snappy",
-	description: "Create and share beautiful images of your source code.",
+	description:
+		"Craft eye-catching code images that capture attention and boost engagement.",
 	icons: [{ rel: "icon", url: Favicon.src }],
 	generator: "Next.js",
 	applicationName: "Snappy",
 	referrer: "origin-when-cross-origin",
 	keywords: ["code snapshot tool", "Next.js", "React", "JavaScript"],
-	authors: [{ name: "shourav", url: "https://nextjs.org" }],
+	authors: [{ name: "Shourav Rahman", url: "https://rahman-dev.vercel.app" }],
 	creator: "Shourav Rahman",
 	publisher: "Shourav Rahman",
 	formatDetection: {
@@ -39,12 +39,12 @@ export const metadata: Metadata = {
 	openGraph: {
 		title: "Snappy - Code Snippet Sharing Platform",
 		description: "Capture and Share Code Snippets Instantly with Snappy.",
-		url: "https://snappy.vercel.app.com",
+		url: "https://snappy-beta.vercel.app.com",
 		siteName: "Snappy - Code Snippet Sharing Platform",
 		type: "website",
 		images: [
 			{
-				url: "https://snappy.vercel.app.com/static/brand/banner.png",
+				url: "https://snappy-beta.vercel.app.com/static/brand/banner.png",
 				width: 1200, // Replace with the actual width
 				height: 630, // Replace with the actual height
 				alt: "Snappy Banner",
@@ -69,7 +69,7 @@ export const metadata: Metadata = {
 
 // RootLayout component for providing a basic HTML structure
 export default function RootLayout({
-	children, // Child components to be rendered within the layout
+	children,
 }: {
 	children: React.ReactNode;
 }) {
@@ -77,7 +77,6 @@ export default function RootLayout({
 		<html lang='en'>
 			<body className={fira.className}>
 				<main className='max-w-7xl mx-auto'>{children}</main>
-				{/* Main content area */}
 			</body>
 		</html>
 	);

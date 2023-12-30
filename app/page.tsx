@@ -1,18 +1,12 @@
 "use client";
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import html2canvas from "html2canvas";
-import dynamic from "next/dynamic";
 import Image from "next/image";
 import Header from "@/components/Header";
 import { backgrounds, initialCode, languages, themes } from "@/utils/utilities";
 import Footer from "@/components/Footer";
 
 import Editor from "@/components/Editor";
-// Dynamic import for Editor component to enable client-side rendering
-// const Editor = dynamic(() => import("@/components/Editor"), {
-// 	ssr: false,
-// 	loading: () => <div>Loading Editor...</div>,
-// });
 
 function Home() {
 	// Ref for capturing the Editor element during export
@@ -21,7 +15,7 @@ function Home() {
 	// State for managing various aspects of the code editor
 	const [language, setLanguage] = useState(languages[0].name);
 	const [theme, setTheme] = useState(themes[0]);
-	const [bg, setBg] = useState(backgrounds[4]);
+	const [bg, setBg] = useState(backgrounds[0].value);
 	const [padding, setPadding] = useState(["1rem", "2rem", "3rem"]);
 	const [currentPadding, setCurrentPadding] = useState(padding[2]);
 	const [activeIcon, setActiveIcon] = useState(languages[0].icon);
@@ -64,10 +58,10 @@ function Home() {
 
 			{/* Introduction Section */}
 			<h2
-				className={`text-xl max-w-4xl w-[80vw] mx-auto text-center text-yellow-400 mb-6`}
+				className={`text-xl max-w-4xl w-[80vw] mx-auto text-center text-[#eee9e5] mb-6`}
 			>
-				Create and share beautiful images of your source code. Start typing or
-				paste into the text area to get started.
+				Craft eye-catching code images that capture attention and boost
+				engagement.Start typing or paste into the text area to get started.
 			</h2>
 
 			{/* Header Component */}
@@ -88,7 +82,7 @@ function Home() {
 			/>
 
 			{/* Editor Section */}
-			<div className='mt-10 w-screen flex justify-center text-white'>
+			<div className='mt-10 w-screen flex justify-center text-[#fcfef5]'>
 				<div ref={editorRef}>
 					<Editor
 						background={bg}

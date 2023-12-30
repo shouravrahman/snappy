@@ -89,10 +89,10 @@ const Editor: React.FC<EditorProps> = ({
 			style={{ background, padding: currentPadding }}
 		>
 			{/* Handles for resizing */}
-			<div className='handle  absolute left-1/2 -top-1 w-2 h-2 rounded-full bg-yellow-500 hover:bg-slate-300'></div>
-			<div className='handle  absolute left-1/2 -bottom-1 w-2 h-2 rounded-full bg-yellow-500 hover:bg-slate-300'></div>
-			<div className='handle  absolute -left-1 top-1/2 w-2 h-2 rounded-full bg-yellow-500 hover:bg-slate-300'></div>
-			<div className='handle  absolute -right-1 top-1/2 w-2 h-2 rounded-full bg-yellow-500 hover:bg-slate-300'></div>
+			<div className='handle  absolute left-1/2 -top-1 w-2 h-2 rounded-full bg-[#DFBA69] hover:bg-slate-300'></div>
+			<div className='handle  absolute left-1/2 -bottom-1 w-2 h-2 rounded-full bg-[#DFBA69] hover:bg-slate-300'></div>
+			<div className='handle  absolute -left-1 top-1/2 w-2 h-2 rounded-full bg-[#DFBA69] hover:bg-slate-300'></div>
+			<div className='handle  absolute -right-1 top-1/2 w-2 h-2 rounded-full bg-[#DFBA69] hover:bg-slate-300'></div>
 
 			{/* Code block containing title and Ace Editor */}
 			<div className='code-block'>
@@ -100,21 +100,21 @@ const Editor: React.FC<EditorProps> = ({
 				<div className='code-title h-[60px] px-4 flex items-center justify-between bg-black '>
 					<div className='flex items-center p-4 gap-1'>
 						{/* Placeholder icons */}
-						<div className='w-3 h-3 rounded-full bg-yellow-200'></div>
-						<div className='w-3 h-3 rounded-full bg-yellow-200'></div>
-						<div className='w-3 h-3 rounded-full bg-yellow-200'></div>
+						<div className='w-3 h-3 rounded-full bg-[#E9FFE1]'></div>
+						<div className='w-3 h-3 rounded-full bg-[#E9FFE1]'></div>
+						<div className='w-3 h-3 rounded-full bg-[#E9FFE1]'></div>
 					</div>
 					{/* Title input */}
 					<div>
 						<input
 							type='text'
-							className='w-full text-white outline-none font-medium text-center bg-transparent p-2'
+							className='w-full text-[#fcfef5] outline-none font-medium text-center bg-transparent p-2'
 							value={title}
 							onChange={(e) => setTitle(e.target.value)}
 						/>
 					</div>
 					{/* Icon section */}
-					<div className='icon flex justify-center items-center bg-white rounded-full p-1'>
+					<div className='icon flex justify-center items-center bg-[#fcfef5] rounded-full p-1'>
 						{/* Display icon */}
 						<Image src={icon} width={20} height={20} alt='icon' />
 					</div>

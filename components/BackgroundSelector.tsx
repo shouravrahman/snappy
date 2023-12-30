@@ -1,24 +1,31 @@
 import { backgrounds } from "@/utils/utilities";
-import React from "react";
+import React, { useState } from "react";
 import BaseSelector from "./BaseSelector";
 
-// Interface for BackgroundSelector component props
 interface BackgroundSelectorProps {
 	bg: string;
 	setBg: (bg: string) => void;
 }
 
-// BackgroundSelector Component
 const BackgroundSelector = ({ bg, setBg }: BackgroundSelectorProps) => {
+	const [selectedName, setSelectedName] = useState(
+		backgrounds.find((b) => b.value === bg)?.name || backgrounds[0].name
+	);
+
+	const handleNameChange = (newName: string) => {
+		const newBg = backgrounds.find((b) => b.name === newName)?.value;
+		setBg(newBg!);
+		setSelectedName(newName);
+	};
+	console.log(backgrounds.map((b) => b.name));
+
 	return (
 		<BaseSelector
-			options={backgrounds}
-			currentValue={bg}
-			setValue={setBg}
+			options={backgrounds.map((b) => b.name)}
+			currentValue={selectedName}
+			setValue={handleNameChange}
 			icon='🟡'
-			placeholder={backgrounds[1]}
-			dataListId='backgrounds'
-			type='color'
+			placeholder={backgrounds[0].name}
 			inputId='background'
 		/>
 	);

@@ -68,16 +68,16 @@ const Header = ({
 
 				{/* Code format button */}
 				<button
-					className='text-2xl border border-yellow-200 rounded'
+					className='text-3xl border border-[#E9FFE1] rounded hover:scale-95'
 					onClick={formatCode}
 				>
 					✨
 				</button>
 				<button
-					className='py-2 px-4 rounded text-sm font-semibold text-white hover:text-yellow-600 bg-slate-700'
+					className='py-2 px-4 rounded text-sm font-semibold text-[#fcfef5] hover:scale-95 bg-blue-700'
 					onClick={exportPng}
 				>
-					<Download className='mr-1 w-4 h-6' />
+					<Download className='mr-1 w-6 h-6' />
 				</button>
 			</div>
 		</header>

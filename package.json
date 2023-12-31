@@ -11,6 +11,7 @@
 		"test:watch": "jest --watch"
 	},
 	"dependencies": {
+		"@testing-library/user-event": "^14.5.2",
 		"ace-builds": "^1.32.2",
 		"html2canvas": "^1.4.1",
 		"js-beautify": "^1.14.11",

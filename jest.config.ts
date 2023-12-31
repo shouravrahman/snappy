@@ -25,9 +25,9 @@ const config: Config = {
 
   // A list of paths to modules that run some code to configure or set up the testing framework before each test
 
-  moduleNameMapper: {
-    'src/(.*)': '<rootDir>/src/$1',
-  },
+  // moduleNameMapper: {
+  //   'src/(.*)': '<rootDir>/components',
+  // },
 }
 
 // createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async

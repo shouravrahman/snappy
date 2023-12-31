@@ -88,7 +88,6 @@ export const backgrounds = [
 		name: "Starlight Path",
 		value: "linear-gradient(to right, #54a7ff, #3a86ff)",
 	},
-	,
 	{
 		name: "Melon Splash",
 		value: "linear-gradient(to right, #ff726f, #f9d4a5)",
@@ -124,10 +123,7 @@ export const backgrounds = [
 		name: "Cyberpunk Dreams",
 		value: "linear-gradient(to right, #3a506b, #a052c9)",
 	},
-	{
-		name: "Neon Jungle",
-		value: "linear-gradient(to right, #45f542, #2bffa5)",
-	},
+	{ name: "Neon Jungle", value: "linear-gradient(to right, #45f542, #2bffa5)" },
 	{
 		name: "Abstract Waves",
 		value:
@@ -137,24 +133,7 @@ export const backgrounds = [
 		name: "Arctic Aurora",
 		value: "linear-gradient(to right, #7f5af0, #e5bfff)",
 	},
-	{
-		name: "Pink Sunrise",
-		value: "linear-gradient(to right, #f78da7, #f54785)",
-	},
-	{
-		name: "Deep Sea",
-		value: "linear-gradient(to bottom, #2980b9, #4fc3f7)",
-	},
-	{
-		name: "Cyberpunk City",
-		value: "linear-gradient(to right, #54a4f3, #a254f3)",
-	},
-	{
-		name: "Neon Lights",
-		value: "linear-gradient(to right, #f05454, #ffcc54)",
-	},
 ];
-
 export const initialCode = [
 	`
     const emptyPromise = new Promise(resolve => 

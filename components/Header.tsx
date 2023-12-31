@@ -1,10 +1,10 @@
-// Import necessary components and dependencies
 import LanguageSelector from "@/components/LanguageSelector";
 import ThemeSelector from "@/components/ThemeSelector";
 import BackgroundSelector from "@/components/BackgroundSelector";
 import PaddingSelector from "@/components/PaddingSelector";
 import { Download } from "lucide-react";
 import beautify from "js-beautify";
+import ImageSelector from "./ImageSelector";
 
 // Interface for component props
 interface HeaderProps {
@@ -21,6 +21,7 @@ interface HeaderProps {
 	exportPng: () => void;
 	code: string;
 	setCode: (code: string) => void;
+	setSelectedImage?: (image: string) => void;
 }
 
 // Header Component
@@ -38,6 +39,7 @@ const Header = ({
 	exportPng,
 	code,
 	setCode,
+	setSelectedImage,
 }: HeaderProps) => {
 	// Function to format code using js-beautify library
 	const formatCode = () => {
@@ -48,7 +50,7 @@ const Header = ({
 	return (
 		// Header section with dynamic background based on 'bg' prop
 		<header
-			className={`max-w-full md:max-w-6xl w-full bg-[${bg}] space-x-4 flex items-center justify-between rounded-md`}
+			className={`max-w-full md:max-w-6xl w-full space-x-4 flex items-center justify-between rounded-md`}
 		>
 			{/* Language and Theme selector section */}
 			<div className='flex items-center justify-center flex-wrap space-x-2'>
@@ -65,6 +67,7 @@ const Header = ({
 					setCurrentPadding={setCurrentPadding}
 				/>
 				<BackgroundSelector bg={bg} setBg={setBg} />
+				<ImageSelector setSelectedImage={setSelectedImage} />
 
 				{/* Code format button */}
 				<button

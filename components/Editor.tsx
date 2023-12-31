@@ -35,6 +35,8 @@ interface EditorProps {
 	currentPadding?: string;
 	code: string;
 	setCode: (code: string) => void;
+	selectedImage?: string;
+	setSelectedImage?: (image: string) => void;
 }
 
 // Editor Component
@@ -46,7 +48,9 @@ const Editor: React.FC<EditorProps> = ({
 	theme,
 	code,
 	setCode,
+	selectedImage,
 }: EditorProps) => {
+	console.log(selectedImage);
 	// State for managing editor size
 	const [width, setWidth] = useState<number>(1100);
 	const [height, setHeight] = useState<number>(500);
@@ -86,7 +90,11 @@ const Editor: React.FC<EditorProps> = ({
 			defaultSize={{ width, height }}
 			onResize={handleResize}
 			className='rounded relative'
-			style={{ background, padding: currentPadding }}
+			style={{
+				padding: currentPadding,
+				clipPath: selectedImage ? "inset-y-[20px]" : "none", // Adjust the inset value as needed
+				background: selectedImage ? `url(${selectedImage})` : background,
+			}}
 		>
 			{/* Handles for resizing */}
 			<div className='handle  absolute left-1/2 -top-1 w-2 h-2 rounded-full bg-[#DFBA69] hover:bg-slate-300'></div>
@@ -95,7 +103,11 @@ const Editor: React.FC<EditorProps> = ({
 			<div className='handle  absolute -right-1 top-1/2 w-2 h-2 rounded-full bg-[#DFBA69] hover:bg-slate-300'></div>
 
 			{/* Code block containing title and Ace Editor */}
-			<div className='code-block'>
+			<div
+				className={`code-block relative ${
+					selectedImage ? "bg-[#180c0c]" : "bg-transparent"
+				}`}
+			>
 				{/* Code title section */}
 				<div className='code-title h-[60px] px-4 flex items-center justify-between bg-black '>
 					<div className='flex items-center p-4 gap-1'>

@@ -15,12 +15,12 @@ function Home() {
 	// State for managing various aspects of the code editor
 	const [language, setLanguage] = useState(languages[0].name);
 	const [theme, setTheme] = useState(themes[0]);
-	const [bg, setBg] = useState(backgrounds[0].value);
+	const [bg, setBg] = useState(backgrounds[0]!.value);
 	const [padding, setPadding] = useState(["1rem", "2rem", "3rem"]);
 	const [currentPadding, setCurrentPadding] = useState(padding[2]);
 	const [activeIcon, setActiveIcon] = useState(languages[0].icon);
 	const [code, setCode] = useState<string>(initialCode[0]);
-
+	const [selectedImage, setSelectedImage] = useState("");
 	// Function to export the code editor content as an image
 	const exportPng = async () => {
 		const editorElement = editorRef.current;
@@ -79,6 +79,7 @@ function Home() {
 				exportPng={exportPng}
 				code={code}
 				setCode={setCode}
+				setSelectedImage={setSelectedImage}
 			/>
 
 			{/* Editor Section */}
@@ -92,6 +93,8 @@ function Home() {
 						currentPadding={currentPadding}
 						code={code}
 						setCode={setCode}
+						selectedImage={selectedImage}
+						setSelectedImage={setSelectedImage}
 					/>
 				</div>
 			</div>

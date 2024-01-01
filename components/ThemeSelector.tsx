@@ -23,7 +23,6 @@ const ThemeSelector = ({ theme, setTheme }: ThemeSelectorProps) => {
 			setValue={setTheme}
 			icon='🎨'
 			placeholder='Select a theme'
-			dataListId='themes'
 			inputId='theme'
 		/>
 	);

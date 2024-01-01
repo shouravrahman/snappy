@@ -2,17 +2,27 @@ import BaseSelector from "./BaseSelector";
 
 const ImageSelector = ({ setSelectedImage }) => {
 	const images = [
-		"images/img1.jpg",
-		"images/img2.jpg",
-		"images/img3.jpg",
-		"images/anim.jpg",
-		"images/anim2.jpeg",
-		"images/pattern2.jpg",
-		"images/pattern3.png",
-		"images/pattern4.jpg",
-		"images/pattern5.jpg",
-		"images/pattern6.jpg",
-		"images/pattern7.jpg",
+		"anim.webp",
+		"anim2.webp",
+		"binary-rain.webp",
+		"blob.webp",
+		"camo.webp",
+		"cloud.webp",
+		"code.webp",
+		"codegeass.webp",
+		"color-sabotage.webp",
+		"color-sabotage2.webp",
+		"cosmic.webp",
+		"creamy.webp",
+		"droplet.webp",
+		"fern.webp",
+		"geometry.webp",
+		"gibberish.webp",
+		"hero-pattern.webp",
+		"peakpx.webp",
+		"tile.webp",
+		"zero-one.webp",
+		// Add more images with personalized names and webp format as needed
 	];
 	const handleImageChange = (img: string) => {
 		setSelectedImage(img);

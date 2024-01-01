@@ -21,7 +21,8 @@ interface HeaderProps {
 	exportPng: () => void;
 	code: string;
 	setCode: (code: string) => void;
-	setSelectedImage?: (image: string) => void;
+	setSelectedImage: (image: string) => void;
+	selectedImage: string | "";
 }
 
 // Header Component
@@ -40,6 +41,7 @@ const Header = ({
 	code,
 	setCode,
 	setSelectedImage,
+	selectedImage,
 }: HeaderProps) => {
 	// Function to format code using js-beautify library
 	const formatCode = () => {

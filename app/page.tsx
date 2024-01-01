@@ -80,6 +80,7 @@ function Home() {
 				code={code}
 				setCode={setCode}
 				setSelectedImage={setSelectedImage}
+				selectedImage={selectedImage}
 			/>
 
 			{/* Editor Section */}

@@ -27,7 +27,6 @@ const PaddingSelector = ({
 			setValue={setCurrentPadding}
 			icon='⏹️'
 			placeholder='Select a padding'
-			dataListId='paddings'
 			inputId='padding'
 		/>
 	);

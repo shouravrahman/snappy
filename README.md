@@ -19,7 +19,7 @@
 ## Installation
 
 ```bash
-git clone <link in the green CODE button top right of the repo>
+git clone https://github.com/shouravrahman/snappy.git
 npm install
 # or
 yarn install

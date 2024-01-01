@@ -1,6 +1,6 @@
 import BaseSelector from "./BaseSelector";
 
-const ImageSelector = ({ setSelectedImage }) => {
+const ImageSelector = ({ setSelectedImage }: any) => {
 	const images = [
 		"anim.webp",
 		"anim2.webp",

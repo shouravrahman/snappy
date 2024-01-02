@@ -52,7 +52,6 @@ const Editor: React.FC<EditorProps> = ({
 	setSelectedImage,
 	selectedImage,
 }: EditorProps) => {
-	console.log(selectedImage);
 	// State for managing editor size
 	const [width, setWidth] = useState<number>(1100);
 	const [height, setHeight] = useState<number>(500);

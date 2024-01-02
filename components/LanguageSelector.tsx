@@ -21,7 +21,6 @@ const LanguageSelector = ({
 		if (newActiveIcon) {
 			setActiveIcon(newActiveIcon);
 		}
-		console.log(newActiveIcon);
 	};
 
 	return (

@@ -17,7 +17,6 @@ const BackgroundSelector = ({ bg, setBg }: BackgroundSelectorProps) => {
 		setBg(newBg!);
 		setSelectedName(newName);
 	};
-	console.log(backgrounds.map((b) => b.name));
 
 	return (
 		<BaseSelector

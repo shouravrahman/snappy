@@ -15,7 +15,7 @@ function Home() {
 	// State for managing various aspects of the code editor
 	const [language, setLanguage] = useState(languages[0].name);
 	const [theme, setTheme] = useState(themes[0]);
-	const [bg, setBg] = useState(backgrounds[0]!.value);
+	const [bg, setBg] = useState(backgrounds[1]!.value);
 	const [padding, setPadding] = useState(["1rem", "2rem", "3rem"]);
 	const [currentPadding, setCurrentPadding] = useState(padding[2]);
 	const [activeIcon, setActiveIcon] = useState(languages[0].icon);
@@ -49,11 +49,11 @@ function Home() {
 		<div className='flex flex-col items-center justify-between px-1 mt-6'>
 			{/* Logo Section */}
 			<Image
-				src='/logo-trs.png'
+				src='/logo_transparent.png'
 				alt='logo'
 				width={100}
 				height={0}
-				className='w-40 h-28 object-cover'
+				className='w-40 h-28 object-contain'
 			/>
 
 			{/* Introduction Section */}

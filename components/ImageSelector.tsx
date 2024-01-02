@@ -1,6 +1,6 @@
 import BaseSelector from "./BaseSelector";
 
-const ImageSelector = ({ setSelectedImage }: any) => {
+const ImageSelector = ({ setSelectedImage, selectedImage }: any) => {
 	const images = [
 		"anim.webp",
 		"anim2.webp",
@@ -24,13 +24,11 @@ const ImageSelector = ({ setSelectedImage }: any) => {
 		"zero-one.webp",
 		// Add more images with personalized names and webp format as needed
 	];
-	const handleImageChange = (img: string) => {
-		setSelectedImage(img);
-	};
+
 	return (
 		<BaseSelector
 			options={images}
-			currentValue={""}
+			currentValue={selectedImage}
 			setValue={setSelectedImage}
 			icon='📷'
 			placeholder={"select Image"}

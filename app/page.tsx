@@ -66,21 +66,21 @@ function Home() {
 
 			{/* Header Component */}
 			<Header
-				language={language}
+				language={language} //same
 				setLanguage={setLanguage}
 				setActiveIcon={setActiveIcon}
-				theme={theme}
+				theme={theme} //same
 				setTheme={setTheme}
 				bg={bg}
 				setBg={setBg}
 				padding={padding}
-				currentPadding={currentPadding}
+				currentPadding={currentPadding} //same
 				setCurrentPadding={setCurrentPadding}
 				exportPng={exportPng}
-				code={code}
-				setCode={setCode}
-				setSelectedImage={setSelectedImage}
-				selectedImage={selectedImage}
+				code={code} //same
+				setCode={setCode} //same
+				setSelectedImage={setSelectedImage} //same
+				selectedImage={selectedImage} //same
 			/>
 
 			{/* Editor Section */}
@@ -88,6 +88,7 @@ function Home() {
 				<div ref={editorRef}>
 					<Editor
 						background={bg}
+						setBackground={setBg}
 						language={language}
 						icon={activeIcon}
 						theme={theme}

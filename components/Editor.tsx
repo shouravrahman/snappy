@@ -31,12 +31,13 @@ interface EditorProps {
 	language: string;
 	theme: string;
 	icon: string;
-	background?: string;
+	background: string;
 	currentPadding?: string;
 	code: string;
 	setCode: (code: string) => void;
-	selectedImage?: string;
-	setSelectedImage?: (image: string) => void;
+	setBackground: (bg: string) => void;
+	selectedImage: string;
+	setSelectedImage: (image: string) => void;
 }
 
 // Editor Component
@@ -48,6 +49,7 @@ const Editor: React.FC<EditorProps> = ({
 	theme,
 	code,
 	setCode,
+	setSelectedImage,
 	selectedImage,
 }: EditorProps) => {
 	console.log(selectedImage);
@@ -80,6 +82,12 @@ const Editor: React.FC<EditorProps> = ({
 		window.addEventListener("resize", updateSize);
 		return () => window.removeEventListener("resize", updateSize);
 	}, []);
+
+	useEffect(() => {
+		if (selectedImage.length > 1) {
+			setSelectedImage("");
+		}
+	}, [background]);
 
 	// JSX structure for the resizable editor
 	return (

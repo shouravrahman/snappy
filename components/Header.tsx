@@ -69,7 +69,10 @@ const Header = ({
 					setCurrentPadding={setCurrentPadding}
 				/>
 				<BackgroundSelector bg={bg} setBg={setBg} />
-				<ImageSelector setSelectedImage={setSelectedImage} />
+				<ImageSelector
+					setSelectedImage={setSelectedImage}
+					selectedImage={selectedImage}
+				/>
 
 				{/* Code format button */}
 				<button

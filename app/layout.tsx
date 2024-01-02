@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from "next";
 import Favicon from "/public/favicon.ico";
 import "./globals.css"; // Global styles for the entire application
 import { fira } from "@/utils/fonts"; // Font utility, presumably for applying a specific font style
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 
 //viewport
 export const viewport: Viewport = {
@@ -76,6 +77,9 @@ export default function RootLayout({
 	return (
 		<html lang='en'>
 			<body className={fira.className}>
+				{process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS ? (
+					<GoogleAnalytics ga_id={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS} />
+				) : null}
 				<main className='max-w-7xl mx-auto'>{children}</main>
 			</body>
 		</html>

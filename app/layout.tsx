@@ -46,9 +46,9 @@ export const metadata: Metadata = {
 		type: "website",
 		images: [
 			{
-				url: "opengraph.png",
+				url: "og.png",
 				width: 1200, // Replace with the actual width
-				height: 630, // Replace with the actual height
+				height: 627, // Replace with the actual height
 				alt: "Snappy Banner",
 			},
 		],

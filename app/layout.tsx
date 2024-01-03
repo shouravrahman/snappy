@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 	},
 	title: "Snappy",
 	description:
-		"Craft eye-catching code images that capture attention and boost engagement.",
+		"Craft eye-catching code snapshots that capture attention and boost engagement.",
 	icons: [{ rel: "icon", url: Favicon.src }],
 	generator: "Next.js",
 	applicationName: "Snappy",
@@ -38,14 +38,15 @@ export const metadata: Metadata = {
 		telephone: false,
 	},
 	openGraph: {
-		title: "Snappy - Code Snippet Sharing Platform",
-		description: "Capture and Share Code Snippets Instantly with Snappy.",
-		url: "https://snappy-beta.vercel.app.com",
+		title: "Snappy - Code snapshot tool",
+		description:
+			"Craft eye-catching code snapshots that capture attention and boost engagement.",
+		url: "https://snappy-beta.vercel.app",
 		siteName: "Snappy - Code Snippet Sharing Platform",
 		type: "website",
 		images: [
 			{
-				url: "https://snappy-beta.vercel.app.com/static/brand/banner.png",
+				url: "/opengraph.png",
 				width: 1200, // Replace with the actual width
 				height: 630, // Replace with the actual height
 				alt: "Snappy Banner",

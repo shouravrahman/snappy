@@ -42,11 +42,11 @@ export const metadata: Metadata = {
 		description:
 			"Craft eye-catching code snapshots that capture attention and boost engagement.",
 		url: "https://snappy-beta.vercel.app",
-		siteName: "Snappy - Code Snippet Sharing Platform",
+		siteName: "Snappy -Craft eye-catching code snapshots",
 		type: "website",
 		images: [
 			{
-				url: "/opengraph.png",
+				url: "opengraph.png",
 				width: 1200, // Replace with the actual width
 				height: 630, // Replace with the actual height
 				alt: "Snappy Banner",

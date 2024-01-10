@@ -13,6 +13,7 @@
 	"dependencies": {
 		"@testing-library/user-event": "^14.5.2",
 		"ace-builds": "^1.32.2",
+		"fast-average-color": "^9.4.0",
 		"html2canvas": "^1.4.1",
 		"js-beautify": "^1.14.11",
 		"lucide-react": "^0.298.0",

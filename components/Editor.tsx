@@ -1,10 +1,11 @@
 // Import necessary dependencies and styles
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Resizable } from "re-resizable";
 import AceEditor from "react-ace";
 import Image from "next/image";
 import "ace-builds/src-noconflict/ext-language_tools";
 import "ace-builds/src-noconflict/ext-language_tools";
+import { FastAverageColor } from "fast-average-color";
 
 // Import Ace Editor modes and themes
 import "ace-builds/src-noconflict/mode-javascript";
@@ -46,12 +47,14 @@ const Editor: React.FC<EditorProps> = ({
 	language,
 	background,
 	currentPadding,
+	setBackground,
 	theme,
 	code,
 	setCode,
 	setSelectedImage,
 	selectedImage,
 }: EditorProps) => {
+	const imageRef = useRef<HTMLImageElement>(null);
 	// State for managing editor size
 	const [width, setWidth] = useState<number>(1100);
 	const [height, setHeight] = useState<number>(500);
@@ -86,7 +89,29 @@ const Editor: React.FC<EditorProps> = ({
 		if (selectedImage.length > 1) {
 			setSelectedImage("");
 		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [background]);
+
+	// useEffect(() => {
+	// 	if (selectedImage) {
+	// 		console.log();
+	// 		const image = `../public/${selectedImage}`;
+	// 		console.log(image);
+	// 		const fac = new FastAverageColor();
+	// 		fac
+	// 			.getColorAsync(image)
+	// 			.then((averageColor) => {
+	// 				// Calculate a contrasting color (adjust logic as needed)
+	// 				const contrastingColor = `#${Math.abs(
+	// 					parseInt(averageColor.rgb.toString(16).slice(1), 16) - 0xffffff // Parse as hexadecimal number
+	// 				).toString(16)}`;
+	// 				setBackground(contrastingColor);
+	// 			})
+	// 			.catch((error) =>
+	// 				console.error("Error calculating average color:", error)
+	// 			);
+	// 	}
+	// }, [selectedImage]);
 
 	// JSX structure for the resizable editor
 	return (
@@ -112,16 +137,18 @@ const Editor: React.FC<EditorProps> = ({
 			{/* Code block containing title and Ace Editor */}
 			<div
 				className={`code-block relative ${
-					selectedImage ? "bg-[#180c0c]" : "bg-transparent"
+					selectedImage
+						? "bg-gradient-to-b backdrop-filter backdrop-blur-md backdrop-contrast-150"
+						: "bg-transparent"
 				}`}
 			>
 				{/* Code title section */}
 				<div className='code-title h-[60px] px-4 flex items-center justify-between bg-black '>
 					<div className='flex items-center p-4 gap-1'>
 						{/* Placeholder icons */}
-						<div className='w-3 h-3 rounded-full bg-[#E9FFE1]'></div>
-						<div className='w-3 h-3 rounded-full bg-[#E9FFE1]'></div>
-						<div className='w-3 h-3 rounded-full bg-[#E9FFE1]'></div>
+						<div className='w-3 h-3 rounded-full bg-[#c6ecb8]'></div>
+						<div className='w-3 h-3 rounded-full bg-[#86ec74]'></div>
+						<div className='w-3 h-3 rounded-full bg-[#9bfd3f]'></div>
 					</div>
 					{/* Title input */}
 					<div>

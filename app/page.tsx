@@ -53,7 +53,7 @@ function Home() {
 				alt='logo'
 				width={100}
 				height={0}
-				className='w-40 h-28 object-contain'
+				className='w-40 h-28 object-contain aspect-3/2'
 			/>
 
 			{/* Introduction Section */}

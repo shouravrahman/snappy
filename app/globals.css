@@ -10,7 +10,8 @@ body {
 	justify-content: center;
 	align-items: center;
 	/* height: 100vh; */
-	overflow: hidden;
+	overflow-y: scroll;
+	overflow-x: hidden;
 }
 input[type="color"][list] {
 	appearance: auto;
